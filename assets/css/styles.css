@@ -1392,12 +1392,22 @@ button {
 /* =========================================================
    Dovolenkové animace
    ========================================================= */
+/* Postavičky létají ZA obsahem: nad pozadím sekcí (z-index 1),
+   ale pod texty a kartami (.container má z-index 2). Konfety jsou vepředu. */
 .fun-layer {
   position: fixed;
   inset: 0;
   overflow: hidden;
   pointer-events: none;
-  z-index: 45;
+  z-index: 1;
+}
+.fun-layer.fun-front {
+  z-index: 46;
+}
+main .container,
+.site-footer .container {
+  position: relative;
+  z-index: 2;
 }
 .flyer {
   position: absolute;

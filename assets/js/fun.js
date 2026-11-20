@@ -176,6 +176,10 @@
   layer.className = "fun-layer";
   layer.setAttribute("aria-hidden", "true");
   document.body.appendChild(layer);
+  const front = document.createElement("div");
+  front.className = "fun-layer fun-front";
+  front.setAttribute("aria-hidden", "true");
+  document.body.appendChild(front);
 
   let busy = 0;
   let last = null;
@@ -247,7 +251,7 @@
       c.style.background = colors[i % colors.length];
       c.style.left = box.left + box.width / 2 + "px";
       c.style.top = Math.max(box.top, 0) + 40 + "px";
-      layer.appendChild(c);
+      front.appendChild(c);
       const dx = rnd(-1, 1) * Math.min(box.width * 0.6, 520);
       const dy = rnd(-260, -120);
       const fall = rnd(260, 520);
