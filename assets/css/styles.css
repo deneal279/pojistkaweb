@@ -1210,7 +1210,7 @@ button {
 }
 
 /* ---------- reveal animation ---------- */
-.reveal {
+.js .reveal {
   opacity: 0;
   transform: translateY(18px);
   transition: opacity 0.6s ease, transform 0.6s ease;
