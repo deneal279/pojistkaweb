@@ -1388,3 +1388,271 @@ button {
     top: 66px;
   }
 }
+
+/* =========================================================
+   Dovolenkové animace
+   ========================================================= */
+.fun-layer {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 45;
+}
+.flyer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  will-change: transform;
+  filter: drop-shadow(0 10px 14px rgba(10, 60, 140, 0.18));
+}
+.flyer svg {
+  display: block;
+  overflow: visible;
+}
+@media (max-width: 640px) {
+  .flyer svg {
+    transform: scale(0.7);
+    transform-origin: 0 0;
+  }
+}
+/* papoušek */
+.flyer .f-wing,
+.flyer .f-wing-back {
+  transform-box: view-box;
+  transform-origin: 54px 46px;
+  animation: f-flap 0.32s ease-in-out infinite alternate;
+}
+.flyer .f-wing-back {
+  animation-delay: -0.16s;
+  opacity: 0.85;
+}
+@keyframes f-flap {
+  from { transform: rotate(-8deg) scaleY(1); }
+  to { transform: rotate(10deg) scaleY(-0.55); }
+}
+/* lyžař */
+.flyer .f-spray circle {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: f-spray 0.6s ease-out infinite;
+}
+.flyer .f-spray circle:nth-child(2n) { animation-delay: -0.3s; }
+.flyer .f-spray circle:nth-child(3n) { animation-delay: -0.15s; }
+@keyframes f-spray {
+  from { transform: translate(0, 0) scale(0.4); opacity: 1; }
+  to { transform: translate(-16px, -10px) scale(1.4); opacity: 0; }
+}
+.flyer .f-scarf {
+  transform-box: fill-box;
+  transform-origin: 100% 50%;
+  animation: f-scarf 0.25s ease-in-out infinite alternate;
+}
+@keyframes f-scarf {
+  to { transform: rotate(-12deg) scaleX(0.9); }
+}
+/* letadlo s transparentem */
+.flyer .f-banner {
+  transform-box: fill-box;
+  transform-origin: 100% 50%;
+  animation: f-banner 0.7s ease-in-out infinite alternate;
+}
+@keyframes f-banner {
+  from { transform: skewY(-2deg) scaleY(0.97); }
+  to { transform: skewY(2deg) scaleY(1.03); }
+}
+.flyer .f-prop {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: f-prop 0.12s linear infinite alternate;
+}
+@keyframes f-prop {
+  to { transform: scaleY(0.2); }
+}
+/* krab */
+.flyer .f-legs path {
+  transform-box: fill-box;
+  transform-origin: 50% 0;
+  animation: f-legs 0.18s ease-in-out infinite alternate;
+}
+@keyframes f-legs {
+  to { transform: rotate(8deg); }
+}
+.flyer .f-claw-l,
+.flyer .f-claw-r {
+  transform-box: fill-box;
+  animation: f-claw 1.4s ease-in-out infinite;
+}
+.flyer .f-claw-l { transform-origin: 100% 100%; }
+.flyer .f-claw-r { transform-origin: 0 100%; animation-delay: -0.7s; }
+@keyframes f-claw {
+  0%, 60%, 100% { transform: rotate(0); }
+  70% { transform: rotate(-14deg); }
+  80% { transform: rotate(6deg); }
+}
+.flyer .f-eye {
+  animation: f-eye 2s ease-in-out infinite;
+}
+@keyframes f-eye {
+  0%, 40%, 100% { transform: translateX(0); }
+  50%, 80% { transform: translateX(-1.5px); }
+}
+
+/* konfety */
+.confetti {
+  position: fixed;
+  width: 8px;
+  height: 13px;
+  border-radius: 2px;
+  will-change: transform;
+}
+.confetti.round {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+.confetti.leaf {
+  width: 12px;
+  height: 7px;
+  border-radius: 12px 0;
+}
+.confetti[style*="#fff"] {
+  box-shadow: 0 0 0 1px var(--blue-200);
+}
+
+/* vlnky mezi sekcemi */
+.hero {
+  padding-bottom: 140px;
+}
+.wave-divider {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 80px;
+  overflow: hidden;
+  pointer-events: none;
+}
+.wave-divider > svg {
+  position: absolute;
+  bottom: 0;
+  width: 200%;
+  height: 100%;
+}
+.wave-divider .w1 {
+  animation: wave-move 14s linear infinite;
+  opacity: 0.45;
+}
+.wave-divider .w2 {
+  animation: wave-move 9s linear infinite reverse;
+}
+@keyframes wave-move {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.site-footer {
+  position: relative;
+}
+.footer-wave {
+  bottom: 100%;
+  height: 92px;
+}
+.footer-wave .w2 path {
+  fill: var(--blue-900);
+}
+.footer-wave .w1 path {
+  fill: var(--blue-600);
+}
+.footer-wave .w1 {
+  opacity: 0.35;
+}
+.footer-boat {
+  position: absolute;
+  bottom: 26px;
+  left: 12%;
+  width: 54px;
+  z-index: 1;
+  animation: boat-ride 28s ease-in-out infinite alternate;
+}
+.footer-boat svg {
+  width: 100%;
+  animation: boat-bob 3s ease-in-out infinite;
+  transform-origin: 50% 100%;
+}
+@keyframes boat-ride {
+  to { left: 78%; }
+}
+@keyframes boat-bob {
+  0%, 100% { transform: rotate(-5deg) translateY(0); }
+  50% { transform: rotate(5deg) translateY(-6px); }
+}
+
+/* drobnosti */
+.opt.is-selected .opt-emoji {
+  animation: pop 0.45s cubic-bezier(0.3, 1.6, 0.5, 1);
+}
+@keyframes pop {
+  0% { transform: scale(0.6) rotate(-10deg); }
+  60% { transform: scale(1.25) rotate(6deg); }
+  100% { transform: scale(1) rotate(0); }
+}
+.party-card:hover .party-icon svg {
+  animation: wiggle 0.6s ease-in-out;
+}
+@keyframes wiggle {
+  25% { transform: rotate(-8deg); }
+  50% { transform: rotate(6deg); }
+  75% { transform: rotate(-3deg); }
+}
+.dest-card {
+  position: relative;
+}
+.dest-card img {
+  transition: transform 0.6s ease;
+}
+.dest-card:hover img {
+  transform: scale(1.06);
+}
+.dest-card .dest-body {
+  position: relative;
+  background: #fff;
+}
+.match-fg {
+  animation: ring 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+@keyframes ring {
+  from { stroke-dasharray: 0 100; }
+}
+.result-card {
+  animation: card-in 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.results-grid .result-card:nth-child(2) { animation-delay: 0.12s; }
+.results-grid .result-card:nth-child(3) { animation-delay: 0.24s; }
+@keyframes card-in {
+  from { opacity: 0; transform: translateY(24px) scale(0.97); }
+}
+.hero h1 .hl {
+  background-size: 200% auto;
+  background-image: linear-gradient(110deg, var(--blue-700), var(--blue-500) 38%, #a8dcff 50%, var(--blue-500) 62%, var(--blue-700));
+  animation: shimmer 6s ease-in-out infinite;
+}
+@keyframes shimmer {
+  0%, 60% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+.hero-cta .btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+.hero-cta .btn-primary::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 35%, rgba(255, 255, 255, 0.45) 50%, transparent 65%);
+  transform: translateX(-100%);
+  animation: btn-shine 4s ease-in-out infinite 1.5s;
+}
+@keyframes btn-shine {
+  0%, 70% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}

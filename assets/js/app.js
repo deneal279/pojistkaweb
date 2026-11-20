@@ -310,6 +310,7 @@
     } else {
       renderResults();
       showStep(TOTAL_STEPS + 1);
+      setTimeout(() => window.DSJ_FUN && window.DSJ_FUN.celebrate($("#results-top")), 650);
     }
     scrollToQuiz();
   }

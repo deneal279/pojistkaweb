@@ -1,4 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" role="img" aria-label="Ilustrace: zasněžené hory">
+  <style>
+    .skier { animation: ski 6s ease-in infinite; transform-box: fill-box; transform-origin: center; }
+    .trail { stroke-dasharray: 4 5; animation: trail 6s ease-in infinite; }
+    .snow circle { animation: fall linear infinite; }
+    .snow circle:nth-child(1) { animation-duration: 6s; }
+    .snow circle:nth-child(2) { animation-duration: 8s; animation-delay: -3s; }
+    .snow circle:nth-child(3) { animation-duration: 7s; animation-delay: -5s; }
+    .snow circle:nth-child(4) { animation-duration: 9s; animation-delay: -1s; }
+    .snow circle:nth-child(5) { animation-duration: 6.5s; animation-delay: -4s; }
+    .snow circle:nth-child(6) { animation-duration: 7.5s; animation-delay: -2s; }
+    .snow circle:nth-child(7) { animation-duration: 8.5s; animation-delay: -6s; }
+    .snow circle:nth-child(8) { animation-duration: 7s; animation-delay: -0.5s; }
+    @keyframes ski { 0% { transform: translate(-200px, -46px) rotate(26deg); opacity: 0; } 10% { opacity: 1; } 85% { opacity: 1; } 100% { transform: translate(150px, 34px) rotate(26deg); opacity: 0; } }
+    @keyframes trail { 0% { opacity: 0; } 30% { opacity: .8; } 100% { opacity: 0; } }
+    @keyframes fall { from { transform: translate(0, -20px); } to { transform: translate(18px, 280px); } }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+  </style>
   <defs>
     <linearGradient id="m1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3D9BFF"/><stop offset="1" stop-color="#CFE8FF"/></linearGradient>
     <linearGradient id="m2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5E7FB8"/><stop offset="1" stop-color="#2D4D8A"/></linearGradient>
@@ -12,6 +29,6 @@
   <path d="M0 260v-40c80-20 160-14 240-2s140 10 160 2v40Z" fill="#fff"/>
   <g fill="#0E8C63"><path d="M40 226l12-30 12 30Z"/><path d="M58 230l10-24 10 24Z"/><path d="M330 222l12-30 12 30Z"/><path d="M350 226l9-22 9 22Z"/></g>
   <!-- skier trail -->
-  <path d="M150 250c30-10 60-6 90-22" fill="none" stroke="#1E7BFF" stroke-width="2" stroke-dasharray="4 5"/>
-  <g transform="translate(240 214)"><circle cx="6" cy="0" r="5" fill="#FF8A5B"/><path d="M2 6l10 2-2 12-8 2Z" fill="#1E7BFF"/><path d="M-6 24l24-6" stroke="#0A2540" stroke-width="2.5" stroke-linecap="round"/></g>
+  <g class="skier"><g transform="translate(240 214)"><circle cx="6" cy="0" r="5" fill="#FF8A5B"/><path d="M2 6l10 2-2 12-8 2Z" fill="#1E7BFF"/><path d="M-6 24l24-6" stroke="#0A2540" stroke-width="2.5" stroke-linecap="round"/></g></g>
+  <g class="snow" fill="#fff" opacity=".9"><circle cx="30" cy="0" r="2"/><circle cx="90" cy="0" r="1.5"/><circle cx="150" cy="0" r="2.2"/><circle cx="200" cy="0" r="1.6"/><circle cx="260" cy="0" r="2"/><circle cx="310" cy="0" r="1.4"/><circle cx="360" cy="0" r="2.1"/><circle cx="120" cy="0" r="1.3"/></g>
 </svg>
