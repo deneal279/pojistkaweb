@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 520" role="img" aria-label="Ilustrace: slunečná pláž s palmou, slunečníkem a letadlem">
+  <defs>
+    <linearGradient id="hb-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2E8BFF"/>
+      <stop offset=".62" stop-color="#8FD0FF"/>
+      <stop offset="1" stop-color="#DDF1FF"/>
+    </linearGradient>
+    <radialGradient id="hb-sun" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#FFF3C4"/>
+      <stop offset=".55" stop-color="#FFD15C"/>
+      <stop offset="1" stop-color="#FFB22E"/>
+    </radialGradient>
+    <radialGradient id="hb-glow" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#FFE7A3" stop-opacity=".8"/>
+      <stop offset="1" stop-color="#FFE7A3" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="hb-sea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1C7CF2"/>
+      <stop offset="1" stop-color="#0A4FB8"/>
+    </linearGradient>
+    <linearGradient id="hb-sand" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFF4DC"/>
+      <stop offset="1" stop-color="#F7DFAE"/>
+    </linearGradient>
+    <linearGradient id="hb-leaf" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2FC28A"/>
+      <stop offset="1" stop-color="#0E8C63"/>
+    </linearGradient>
+    <clipPath id="hb-card"><rect width="600" height="520" rx="36"/></clipPath>
+  </defs>
+  <g clip-path="url(#hb-card)">
+    <rect width="600" height="520" fill="url(#hb-sky)"/>
+    <circle cx="420" cy="250" r="170" fill="url(#hb-glow)"/>
+    <circle cx="420" cy="262" r="78" fill="url(#hb-sun)"/>
+    <!-- clouds -->
+    <g fill="#fff">
+      <g opacity=".95"><ellipse cx="120" cy="110" rx="58" ry="20"/><ellipse cx="150" cy="96" rx="34" ry="24"/><ellipse cx="100" cy="100" rx="26" ry="18"/></g>
+      <g opacity=".8"><ellipse cx="500" cy="80" rx="46" ry="15"/><ellipse cx="522" cy="70" rx="24" ry="17"/></g>
+      <g opacity=".7"><ellipse cx="300" cy="170" rx="36" ry="11"/><ellipse cx="314" cy="162" rx="18" ry="12"/></g>
+    </g>
+    <!-- plane + trail -->
+    <path d="M40 210C140 120 250 110 350 140" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-dasharray="1 11" opacity=".9"/>
+    <g transform="translate(352 128) rotate(14)">
+      <path d="M0 10 48 4c6-.7 10 1.4 10 4.6S54 13.9 48 13.2L0 7Z" fill="#fff"/>
+      <path d="M22 6.5 8-14h7l20 20.3Z M22 11 10 26h6l18-14Z M2 7.5-6-4h5l9 11Z" fill="#E8F3FF"/>
+      <circle cx="50" cy="8.4" r="1.6" fill="#2E8BFF"/>
+    </g>
+    <!-- birds -->
+    <g fill="none" stroke="#0A4FB8" stroke-width="2.4" stroke-linecap="round" opacity=".55">
+      <path d="M210 230q7-7 14 0q7-7 14 0"/><path d="M246 214q5-5 10 0q5-5 10 0"/>
+    </g>
+    <!-- sea -->
+    <path d="M0 318h600v202H0z" fill="url(#hb-sea)"/>
+    <path d="M330 318h180l-30 6h-120z" fill="#FFD978" opacity=".55"/>
+    <path d="M360 334h120l-22 4h-80z" fill="#FFD978" opacity=".45"/>
+    <path d="M385 348h70l-14 3h-44z" fill="#FFD978" opacity=".35"/>
+    <g fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".35">
+      <path d="M40 350q15-8 30 0t30 0"/><path d="M180 372q15-8 30 0t30 0"/><path d="M520 380q12-7 24 0t24 0"/><path d="M90 400q12-7 24 0t24 0"/>
+    </g>
+    <!-- sailboat -->
+    <g transform="translate(150 286)">
+      <path d="M0 34h56l-8 10H8Z" fill="#fff"/>
+      <path d="M30 32V-6L54 30Z" fill="#fff"/>
+      <path d="M27 32V2L8 30Z" fill="#FFB22E"/>
+    </g>
+    <!-- sand -->
+    <path d="M0 440c90-40 210-52 330-44s210 20 270 8v116H0z" fill="url(#hb-sand)"/>
+    <path d="M0 448c90-40 210-52 330-44" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".8"/>
+    <!-- palm tree -->
+    <g>
+      <path d="M96 470C90 400 92 330 120 262" fill="none" stroke="#B9824B" stroke-width="16" stroke-linecap="round"/>
+      <g stroke="#9A6A3B" stroke-width="2" opacity=".5"><path d="M86 440h18M88 410h17M90 380h17M94 350h17M100 320h17M108 292h15"/></g>
+      <g fill="url(#hb-leaf)">
+        <path d="M120 262c-30-34-78-38-110-18 38-4 72 8 110 18Z"/>
+        <path d="M120 262c-14-44-56-70-96-66 34 12 62 34 96 66Z"/>
+        <path d="M120 262c18-42 62-58 100-48-36 4-68 20-100 48Z"/>
+        <path d="M120 262c36-18 80-8 104 22-30-14-64-20-104-22Z"/>
+        <path d="M120 262c-6 34-34 62-70 72 26-20 48-44 70-72Z"/>
+        <path d="M120 262c22 18 34 48 30 80-12-30-20-54-30-80Z"/>
+      </g>
+      <circle cx="116" cy="270" r="7" fill="#7A4E26"/><circle cx="128" cy="268" r="6" fill="#8C5A2D"/>
+    </g>
+    <!-- umbrella -->
+    <g transform="translate(410 352)">
+      <path d="M8 0 22 118" stroke="#6C7A90" stroke-width="5" stroke-linecap="round"/>
+      <path d="M-82 30C-70-20 70-40 100-10Z" fill="#fff"/>
+      <path d="M-82 30C-58 4-34-8 8 0-24-10-48 4-82 30Z M8 0c30-4 60 0 92-10C80-26 40-24 8 0Z" fill="#1E7BFF"/>
+      <path d="M-82 30q16-12 30-4q14-20 34-12q16-18 26-14q18-12 34-4q18-14 30-4q12-6 30-2" fill="none" stroke="#0A4FB8" stroke-width="2" opacity=".25"/>
+    </g>
+    <!-- towel -->
+    <path d="M330 478l118-14 26 26-120 16z" fill="#fff"/>
+    <path d="M354 474l118-14M360 482l118-14" stroke="#1E7BFF" stroke-width="5" opacity=".9"/>
+    <!-- ball & starfish -->
+    <g transform="translate(250 470)">
+      <circle r="16" fill="#fff"/>
+      <path d="M-16 0a16 16 0 0 1 16-16v32A16 16 0 0 1-16 0Z" fill="#1E7BFF"/>
+      <path d="M0-16a16 16 0 0 1 14 8L0 0Z" fill="#FFB22E"/>
+    </g>
+    <path d="M540 470l5 10 11 1-8 7 3 11-11-6-10 6 3-11-8-7 11-1Z" fill="#FF8A5B"/>
+  </g>
+</svg>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" role="img" aria-label="Ilustrace: zasněžené hory">
+  <defs>
+    <linearGradient id="m1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3D9BFF"/><stop offset="1" stop-color="#CFE8FF"/></linearGradient>
+    <linearGradient id="m2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5E7FB8"/><stop offset="1" stop-color="#2D4D8A"/></linearGradient>
+  </defs>
+  <rect width="400" height="260" fill="url(#m1)"/>
+  <circle cx="80" cy="64" r="24" fill="#FFE08A"/>
+  <path d="M-10 210 110 70l70 80 60-60 170 120Z" fill="url(#m2)"/>
+  <path d="M110 70 82 103l14 6 14-10 14 12 14-6Z M240 90l-24 24 14 4 10-8 12 10 14-4Z" fill="#fff"/>
+  <path d="M-10 230 90 140l80 60 90-70 150 100v40H-10Z" fill="#8FB4E8"/>
+  <path d="M260 130l-26 22 14 4 12-9 13 10 14-4Z" fill="#fff"/>
+  <path d="M0 260v-40c80-20 160-14 240-2s140 10 160 2v40Z" fill="#fff"/>
+  <g fill="#0E8C63"><path d="M40 226l12-30 12 30Z"/><path d="M58 230l10-24 10 24Z"/><path d="M330 222l12-30 12 30Z"/><path d="M350 226l9-22 9 22Z"/></g>
+  <!-- skier trail -->
+  <path d="M150 250c30-10 60-6 90-22" fill="none" stroke="#1E7BFF" stroke-width="2" stroke-dasharray="4 5"/>
+  <g transform="translate(240 214)"><circle cx="6" cy="0" r="5" fill="#FF8A5B"/><path d="M2 6l10 2-2 12-8 2Z" fill="#1E7BFF"/><path d="M-6 24l24-6" stroke="#0A2540" stroke-width="2.5" stroke-linecap="round"/></g>
+</svg>
