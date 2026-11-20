@@ -184,6 +184,56 @@
   let busy = 0;
   let last = null;
 
+  /* Neviditelné "desky" za texty: vrstvu s postavičkami ořízneme tak,
+     aby za nadpisy a odstavci úplně zmizely (ne aby prosvítaly mezi písmeny). */
+  const SHIELDS = ".hero-copy > *, .section-head > *, .footer-inner > *, .footer-legal > *, .results-head";
+  const PAD = 10;
+  function shieldRects(W, H) {
+    let rects = [];
+    document.querySelectorAll(SHIELDS).forEach((el) => {
+      const r = el.getBoundingClientRect();
+      if (!r.width || !r.height || r.bottom < -PAD || r.top > H + PAD) return;
+      rects.push({ l: r.left - PAD, t: r.top - PAD, r: r.right + PAD, b: r.bottom + PAD });
+    });
+    // sloučit překrývající se obdélníky (jinak by se průnik znovu "odkryl")
+    let merged = true;
+    while (merged) {
+      merged = false;
+      outer: for (let i = 0; i < rects.length; i++) {
+        for (let k = i + 1; k < rects.length; k++) {
+          const a = rects[i], c = rects[k];
+          if (a.l < c.r && c.l < a.r && a.t < c.b && c.t < a.b) {
+            rects[i] = { l: Math.min(a.l, c.l), t: Math.min(a.t, c.t), r: Math.max(a.r, c.r), b: Math.max(a.b, c.b) };
+            rects.splice(k, 1);
+            merged = true;
+            break outer;
+          }
+        }
+      }
+    }
+    return rects;
+  }
+  let clipRaf = 0;
+  function updateClip() {
+    clipRaf = 0;
+    if (!busy) {
+      layer.style.clipPath = "";
+      return;
+    }
+    const W = window.innerWidth;
+    const H = window.innerHeight;
+    let d = `M0 0H${W}V${H}H0Z`;
+    shieldRects(W, H).forEach((q) => {
+      const f = (n) => Math.round(n);
+      d += `M${f(q.l)} ${f(q.t)}H${f(q.r)}V${f(q.b)}H${f(q.l)}Z`;
+    });
+    layer.style.clipPath = `path(evenodd, "${d}")`;
+    clipRaf = requestAnimationFrame(updateClip);
+  }
+  function startClip() {
+    if (!clipRaf) updateClip();
+  }
+
   function fly(name) {
     const a = ACTORS[name];
     if (!a || document.hidden) return;
@@ -194,6 +244,7 @@
     el.innerHTML = SVG[name];
     layer.appendChild(el);
     busy++;
+    startClip();
     const anim = el.animate(a.frames(W, H), { duration: a.duration(), easing: a.easing || "linear", fill: "forwards" });
     anim.onfinish = anim.oncancel = () => {
       el.remove();
